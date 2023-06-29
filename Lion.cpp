@@ -9,7 +9,7 @@ Lion::Lion():mane_size(5){
     voice();
 }
 
-Lion::Lion(int size):mane_size(size){
+Lion::Lion(int d_size, int weight, int h_size, int m_size):Mammal(d_size,weight,h_size),mane_size(m_size){
     p_mane = new int[mane_size];
     voice();
 }
@@ -37,4 +37,8 @@ Lion::~Lion(){
     std::cout << "Destructor Lion" << std::endl;
     delete[] p_mane;
     p_mane = nullptr;
+}
+
+void Lion::operator()(){
+    std::cout << "Functor Lion" << std::endl;
 }
