@@ -11,6 +11,7 @@ class Animal{
         virtual void voice() = 0;
         virtual void move() = 0;
     public:
+        static int count;
         Animal();
         Animal(int,int);
         Animal (const Animal&);

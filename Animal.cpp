@@ -1,14 +1,19 @@
 #include "Animal.h"
 
+int Animal::count = 0;
+
 Animal::Animal():dna_size(5),weight(35){
+    Animal::count++;
     p_dna = new std::string[dna_size];
 }
 
 Animal::Animal(int size,int weight):dna_size(size),weight(weight){
+    Animal::count++;
     p_dna = new std::string[dna_size];
 }
 
 Animal::Animal (const Animal& obj){
+    Animal::count++;
     this->weight = obj.weight;
     this->dna_size = obj.dna_size;
     p_dna = new std::string[dna_size];

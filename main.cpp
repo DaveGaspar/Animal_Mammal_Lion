@@ -3,6 +3,8 @@
 #include "Lion.h"
 
 int main(){
+    std::cout << "Animal::count = " << Animal::count << std::endl;
+
     Lion lion_1(3,45,17,26);
     Lion lion_2(5,64,15,23);
 
@@ -18,6 +20,7 @@ int main(){
     std::cout << "Lion 2:" << std::endl;
     lion_2();
 
+    std::cout << "Animal::count = " << Animal::count << std::endl;
     std::cout << std::endl;
     return 0;
 }
