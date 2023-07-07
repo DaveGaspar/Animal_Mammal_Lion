@@ -10,7 +10,7 @@ class Lion:public Mammal{
         void voice() final;
     public:
         Lion();
-        Lion(int,int,int,int);
+        Lion(int,int,int,int,color);
         Lion (const Lion&);
         Lion& operator = (const Lion&);
         ~Lion() final;

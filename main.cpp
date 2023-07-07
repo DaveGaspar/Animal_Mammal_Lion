@@ -5,8 +5,8 @@
 int main(){
     std::cout << "Animal::count = " << Animal::count << std::endl;
 
-    Lion lion_1(3,45,17,26);
-    Lion lion_2(5,64,15,23);
+    Lion lion_1(3,45,17,26,Animal::red);
+    Lion lion_2(5,64,15,23,Animal::yellow);
 
     if (lion_1<lion_2){
         std::cout << "Lion_1 is lighter than lion_2" << std::endl;
@@ -22,5 +22,9 @@ int main(){
 
     std::cout << "Animal::count = " << Animal::count << std::endl;
     std::cout << std::endl;
+    
+    std::cout << "Converter: " << Animal::enum_to_string(lion_1.get_animal_color()) << std::endl;
+    std::cout << std::endl;
+    
     return 0;
 }

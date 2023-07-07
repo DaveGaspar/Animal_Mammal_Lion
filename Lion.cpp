@@ -9,7 +9,7 @@ Lion::Lion():mane_size(5){
     voice();
 }
 
-Lion::Lion(int d_size, int weight, int h_size, int m_size):Mammal(d_size,weight,h_size),mane_size(m_size){
+Lion::Lion(int d_size, int weight, int h_size, int m_size, color c):Mammal(d_size,weight,h_size,c),mane_size(m_size){
     p_mane = new int[mane_size];
     voice();
 }

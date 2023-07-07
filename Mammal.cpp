@@ -10,7 +10,7 @@ Mammal::Mammal():hair_size(5){
     voice();
 }
 
-Mammal::Mammal(int d_size, int weight, int h_size):Animal(d_size,weight),hair_size(h_size){
+Mammal::Mammal(int d_size, int weight, int h_size, color c):Animal(d_size,weight,c),hair_size(h_size){
     p_hair = new std::string[hair_size];
     move();
     voice();

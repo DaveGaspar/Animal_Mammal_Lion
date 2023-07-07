@@ -11,7 +11,7 @@ class Mammal:public Animal{
         void voice() override;
     public:
         Mammal();
-        Mammal(int,int,int);
+        Mammal(int,int,int,color);
         Mammal (const Mammal&);
         Mammal& operator = (const Mammal&);
         ~Mammal() override;
