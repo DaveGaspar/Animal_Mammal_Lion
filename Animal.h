@@ -18,7 +18,6 @@ class Animal{
             yellow,
             black
         };
-        static std::string enum_to_string(color);
         static int count;
         Animal();
         Animal(int,int,color);
@@ -27,10 +26,12 @@ class Animal{
         virtual ~Animal();
         bool operator < (const Animal&);
         bool operator > (const Animal&);
+        void set_animal_color(color);
         color get_animal_color();
+        static std::string enum_to_string(color);
+        static color string_to_enum(std::string);
     private:
-        color animal_color;
-
+        color m_animal_color;
 };
 
 #endif

@@ -19,12 +19,20 @@ std::string Animal::enum_to_string(color c){
     return 0;
 }
 
-Animal::Animal():dna_size(5),weight(35),animal_color(yellow){
+Animal::color Animal::string_to_enum(std::string str){
+    if (str == "red") return red;
+    else if (str == "green") return green;
+    else if (str == "blue") return blue;
+    else if (str == "yellow") return yellow;
+    else if (str == "black") return black;
+}
+
+Animal::Animal():dna_size(5),weight(35),m_animal_color(yellow){
     Animal::count++;
     p_dna = new std::string[dna_size];
 }
 
-Animal::Animal(int size,int weight,color(c)):dna_size(size),weight(weight),animal_color(c){
+Animal::Animal(int size,int weight,color(c)):dna_size(size),weight(weight),m_animal_color(c){
     Animal::count++;
     p_dna = new std::string[dna_size];
 }
@@ -65,6 +73,10 @@ Animal::~Animal(){
     p_dna = nullptr;
 }
 
+void Animal::set_animal_color(color c){
+    m_animal_color = c;
+}
+
 Animal::color Animal::get_animal_color(){
-    return animal_color;
+    return m_animal_color;
 }

@@ -26,5 +26,10 @@ int main(){
     std::cout << "Converter: " << Animal::enum_to_string(lion_1.get_animal_color()) << std::endl;
     std::cout << std::endl;
     
+    lion_2.set_animal_color(Animal::string_to_enum("black"));
+    std::cout << "Converter: " << Animal::enum_to_string(lion_2.get_animal_color()) << std::endl;
+    std::cout << std::endl;
+
+
     return 0;
 }
