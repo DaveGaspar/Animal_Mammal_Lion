@@ -33,6 +33,24 @@ Lion& Lion::operator = (const Lion& obj){
     return *this;
 }
 
+Lion::Lion(Lion&& obj)
+    : Mammal(std::move(obj)), mane_size(obj.mane_size), p_mane(obj.p_mane)
+{
+    obj.mane_size = 0;
+    obj.p_mane = nullptr;
+}
+
+Lion& Lion::operator=(Lion&& obj){
+    if (this != &obj){
+        delete[] this->p_mane;
+        this->mane_size = obj.mane_size;
+        this->p_mane = obj.p_mane;
+        obj.mane_size = 0;
+        obj.p_mane = nullptr;
+    }
+    return *this;
+}
+
 Lion::~Lion(){
     std::cout << "Destructor Lion" << std::endl;
     delete[] p_mane;

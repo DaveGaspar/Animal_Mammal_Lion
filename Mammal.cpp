@@ -35,6 +35,27 @@ Mammal& Mammal::operator = (const Mammal& obj){
     return *this;
 }
 
+Mammal::Mammal(Mammal&& obj)
+    : Animal(std::move(obj)), hair_size(obj.hair_size), p_hair(obj.p_hair), mammary_gland(obj.mammary_gland)
+{
+    obj.hair_size = 0;
+    obj.p_hair = nullptr;
+    obj.mammary_gland = 0;
+}
+
+Mammal& Mammal::operator=(Mammal&& obj){
+    if (this != &obj){
+        delete[] this->p_hair;
+        this->hair_size = obj.hair_size;
+        this->p_hair = obj.p_hair;
+        this->mammary_gland = obj.mammary_gland;
+        obj.hair_size = 0;
+        obj.p_hair = nullptr;
+        obj.mammary_gland = 0;
+    }
+    return *this;
+}
+
 Mammal::~Mammal(){
     std::cout << "Destructor Mammal" << std::endl;
     delete[] p_hair;

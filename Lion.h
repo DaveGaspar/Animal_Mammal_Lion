@@ -4,7 +4,7 @@
 #include "Mammal.h"
 
 class Lion:public Mammal{
-    protected:
+    public:
         int mane_size;
         int* p_mane;
         void voice() final;
@@ -13,6 +13,8 @@ class Lion:public Mammal{
         Lion(int,int,int,int,color);
         Lion (const Lion&);
         Lion& operator = (const Lion&);
+        Lion(Lion&&);
+        Lion& operator=(Lion&&);
         ~Lion() final;
         void operator()();
 };

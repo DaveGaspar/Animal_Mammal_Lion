@@ -15,6 +15,8 @@ std::string Animal::enum_to_string(color c){
         return "yellow";
     case Animal::color::black:
         return "black";
+    case Animal::color::null:
+        return 0;
     }
     return 0;
 }
@@ -25,6 +27,7 @@ Animal::color Animal::string_to_enum(std::string str){
     else if (str == "blue") return blue;
     else if (str == "yellow") return yellow;
     else if (str == "black") return black;
+    return null;
 }
 
 Animal::Animal():dna_size(5),weight(35),m_animal_color(yellow){
@@ -55,6 +58,32 @@ Animal& Animal::operator = (const Animal& obj){
         p_dna = new std::string[dna_size];
         for (int i = 0; i < dna_size; i++)
             this->p_dna = obj.p_dna;
+    }
+    return *this;
+}
+
+Animal::Animal(Animal&& obj)
+    : dna_size(obj.dna_size), weight(obj.weight), p_dna(obj.p_dna), m_animal_color(obj.m_animal_color)
+{
+    obj.dna_size = 0;
+    obj.weight = 0;
+    obj.p_dna = nullptr;
+    obj.m_animal_color = null;
+}
+
+Animal& Animal::operator =(Animal&& obj)
+{
+    if (this != &obj){
+        delete[] this->p_dna;
+        this->dna_size = obj.dna_size; 
+        this->weight = obj.weight;
+        this->p_dna = obj.p_dna;
+        this->m_animal_color = obj.m_animal_color;
+
+        obj.dna_size = 0;
+        obj.weight = 0;
+        obj.p_dna = nullptr;
+        obj.m_animal_color = null;
     }
     return *this;
 }

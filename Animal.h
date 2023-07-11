@@ -16,13 +16,16 @@ class Animal{
             green,
             blue,
             yellow,
-            black
+            black,
+            null
         };
         static int count;
         Animal();
         Animal(int,int,color);
-        Animal (const Animal&);
+        Animal(const Animal&);
         Animal& operator = (const Animal&);
+        Animal(Animal&&);
+        Animal& operator=(Animal&&);
         virtual ~Animal();
         bool operator < (const Animal&);
         bool operator > (const Animal&);

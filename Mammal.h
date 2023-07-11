@@ -12,8 +12,10 @@ class Mammal:public Animal{
     public:
         Mammal();
         Mammal(int,int,int,color);
-        Mammal (const Mammal&);
+        Mammal(const Mammal&);
         Mammal& operator = (const Mammal&);
+        Mammal(Mammal&&);
+        Mammal& operator=(Mammal&&);
         ~Mammal() override;
         void move() final;
 };
